@@ -1,0 +1,32 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './src/Login'
+import Cadastrar from "./src/Cadastrar"
+import Listar from "./src/Listar"
+import Editar from './src/Editar'
+
+export default function Routes() {
+
+
+  const Stack = createNativeStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login}  
+      options={{ 
+        title: 'Bem vindo',
+        headerTintColor:"#333",
+        headerTitleAlign:"center",
+        headerTitleStyle:{fontWeight:'bold',alignSelf:'center' }
+        
+        }}
+      />
+      <Stack.Screen name="Cadastrar" component={Cadastrar} options={{ title: 'Novo Usuário'}}/>
+      <Stack.Screen name="Listar" component={Listar} options={{ title: 'Contatos'}}/>
+      <Stack.Screen name="Editar" component={Editar} options={{ title: 'Atualizar Contato'}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
